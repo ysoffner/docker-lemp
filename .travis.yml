@@ -13,6 +13,8 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
   - mkdir www
   - echo -e "<?php \n phpinfo();" > www/index.php
+  - cd configs/
+  - docker build . -t ysoffner/php:7.2-fpm
 
 script:
   - docker version
@@ -20,10 +22,14 @@ script:
   - docker-compose up -d
   - docker-compose ps
   - echo "Travis:" $TRAVIS_TEST_RESULT
-  - if [[ $(curl -IL http://localhost |grep "200" |awk {'print $3'}) != 'OK' ]]; then
-      echo 'Not Found' && exit 0;
+  - if [[ $(curl -sIL http://localhost |grep "200" |awk {'print $3'}) != 'OK' ]]; then
+      curl -IL http://localhost &&
+      echo 'Not Found' && exit 1;
     fi
 
+after_success:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+  - docker push ysoffner/php:7.2-fpm
 
 notifications:
   email:
