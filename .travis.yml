@@ -11,8 +11,8 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-  - mkdir www/
-  - echo -e "<?php \n phpinfo();" >> www/index.php
+  - mkdir www
+  - echo -e "<?php \n phpinfo();" > www/index.php
 
 script:
   - docker version
@@ -21,8 +21,8 @@ script:
   - docker-compose ps
   - echo "Travis:" $TRAVIS_TEST_RESULT
   - if [[ $(curl -IL http://localhost |grep "200" |awk {'print $3'}) != 'OK' ]]; then
-    echo 'Not Found' && exit 0;
-  fi
+      echo 'Not Found' && exit 0;
+    fi
 
 
 notifications:
