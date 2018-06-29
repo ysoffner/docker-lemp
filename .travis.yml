@@ -22,9 +22,9 @@ script:
   - docker-compose up -d
   - docker-compose ps
   - echo "Travis:" $TRAVIS_TEST_RESULT
-  - if [[ $(curl -sIL http://localhost |grep "200" |awk {'print $3'}) != 'OK' ]]; then
+  - if [[ $(curl -sIL http://localhost |grep "200" |awk {'print $2'}) != 200 ]]; then
       curl -IL http://localhost &&
-      echo 'Not Found' && exit 1;
+      echo 'Not Found'
     fi
 
 after_success:
