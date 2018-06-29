@@ -15,7 +15,7 @@ services:
 
   php:
     container_name: lemp-php
-    image: ysoffner/php-fpm:latest
+    image: ysoffner/php:7.2-fpm
     volumes:
       - ./www:/var/www/
 
