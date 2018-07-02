@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/ysoffner/docker-lemp.svg?branch=master)](https://travis-ci.org/ysoffner/docker-lemp)
-https://images.microbadger.com/badges/image/ysoffner/php.svg
 [![Version](https://images.microbadger.com/badges/version/ysoffner/php.svg)](https://microbadger.com/images/ysoffner/php)
 [![Layers](https://images.microbadger.com/badges/image/ysoffner/php.svg)](https://microbadger.com/images/ysoffner/php)
 
