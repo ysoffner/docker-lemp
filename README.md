@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/ysoffner/docker-lemp.svg?branch=master)](https://travis-ci.org/ysoffner/docker-lemp)
+https://images.microbadger.com/badges/image/ysoffner/php.svg
+[![Version](https://images.microbadger.com/badges/version/ysoffner/php.svg)](https://microbadger.com/images/ysoffner/php)
+[![Layers](https://images.microbadger.com/badges/image/ysoffner/php.svg)](https://microbadger.com/images/ysoffner/php)
+
 # docker-lemp
 ### Simple Docker compose LEMP (Nginx / PHP / MariaDB)
 ```
@@ -8,3 +13,5 @@ docker-compose up -d
 
 with you want enable mariadb and phpmyadmin, has to uncomment in docker-compose.yml
 ```
+### Docker Hub
+[`ysoffner/docker-lemp`](https://hub.docker.com/r/ysoffner/docker-lemp/)
