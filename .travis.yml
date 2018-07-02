@@ -14,7 +14,7 @@ before_install:
   - mkdir www
   - echo -e "<?php \n phpinfo();" > www/index.php
   - cd configs/
-  - docker build . -t ysoffner/php:7.2-fpm
+  - docker build -t ysoffner/php:7.2-fpm .
 
 script:
   - docker version
@@ -22,7 +22,7 @@ script:
   - docker-compose up -d
   - docker-compose ps
   - echo "Travis:" $TRAVIS_TEST_RESULT
-
+  - if [[ $(curl -I http://localhost 2>/dev/null | head -n 1 | cut -d$' ' -f2) != 200 ]];then echo "Status Failed" && exit 1; fi
 
 after_success:
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
